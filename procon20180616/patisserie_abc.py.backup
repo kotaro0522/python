@@ -1,0 +1,49 @@
+import collections
+
+n, m = map(int, input().split())
+cakes = []
+x = []
+y = []
+z = []
+for i in range(n):
+  _x, _y, _z = map(int, input().split())
+  if _x == 0 and _y == 0:
+    cakes.append([0])
+  elif _x >= 0 and _y >= 0:
+    cakes.append([1])
+  elif _x <= 0 and _y >= 0:
+    cakes.append([2])
+  elif _x <= 0 and _y <= 0:
+    cakes.append([3])
+  elif _x >= 0 and _y <= 0:
+    cakes.append([4])
+  
+  if _y == 0 and _z == 0:
+    cakes[-1].append(0)
+  elif _y >= 0 and _z >= 0:
+    cakes[-1].append(1)
+  elif _y <= 0 and _z >= 0:
+    cakes[-1].append(2)
+  elif _y <= 0 and _z <= 0:
+    cakes[-1].append(3)
+  elif _y >= 0 and _z <= 0:
+    cakes[-1].append(4)
+
+  if _z == 0 and _x == 0:
+    cakes[-1].append(0)
+  elif _z >= 0 and _x >= 0:
+    cakes[-1].append(1)
+  elif _z >= 0 and _x <= 0:
+    cakes[-1].append(2)
+  elif _z <= 0 and _x <= 0:
+    cakes[-1].append(3)
+  elif _z <= 0 and _x >= 0:
+    cakes[-1].append(4)
+    
+  x.append(_x)
+  y.append(_y)
+  z.append(_z)
+  
+print(x,y,z)
+print(cakes)
+print(collections.Counter(cakes[][0]))

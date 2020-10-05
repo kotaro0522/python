@@ -1,0 +1,21 @@
+#import pdb; pdb.set_trace()
+
+n, y = map(int, input().split())
+
+def otoshidama(n, y):
+  for i in range(n+1):
+    if i >= n:
+      break
+    for j in range(n+1):
+      if i + j >= n:
+        break
+      for k in range(n+1):
+        if 10000 * i + 5000 + j + 1000 * k == y and i + j + k == n:
+          print("{} {} {}".format(i,j,k))
+          return
+        elif i + j + k >= n:
+          break
+  
+  print("-1 -1 -1")
+
+otoshidama(n, y)
